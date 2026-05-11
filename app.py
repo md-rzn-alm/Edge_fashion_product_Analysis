@@ -398,7 +398,7 @@ def load_category_analysis(selected_category):
     st.title(selected_category)
 
     filtered_cat = final[final['category'].str.contains(selected_category, case=False, na=False)]
-    st.dataframe(filtered_cat[['title', 'price', 'data' , 'image']].sort_values('price' , ascending=False))
+
 
     filtered_cat = filtered_cat.sort_values('price'  , ascending=False)
 
@@ -462,6 +462,7 @@ def load_category_analysis(selected_category):
 
         except IndexError:
             st.error("No item in Bestseller")
+    st.dataframe(filtered_cat[['title', 'price', 'data' , 'image']].sort_values('price' , ascending=False))
 
 option = st.sidebar.selectbox('Select One', ['Overall Analysis', 'Category', 'Celebrity'])
 
@@ -470,11 +471,11 @@ def load_celebrity_analysis(selected_celebrity):
     st.title('Celebrity Analysis')
     st.subheader(selected_celebrity)
     filtered_df = df[df['celebrity'].str.contains(selected_celebrity, case=False, na=False)].sort_values(by='price', ascending=False)
-    st.dataframe(filtered_df[['title', 'price' , 'image']].head(15))
+
 
     col1, col2, col3 = st.columns(3)
     with col1:
-
+        st.subheader(" ")
         st.metric("📊 Total Items by : " + selected_celebrity, len(filtered_df))
         st.metric("💰 Highest Item Price by  : " + selected_celebrity, f"₹ {filtered_df['price'].max():,.0f}")
         st.metric("💰 Lowest Item Price by : " + selected_celebrity, f"₹ {filtered_df['price'].min():,.0f}")
@@ -489,6 +490,7 @@ def load_celebrity_analysis(selected_celebrity):
         image_url = filtered_df['image'].iloc[-1]
         st.image(image_url, caption=selected_celebrity, width=200)
 
+    st.dataframe(filtered_df[['title', 'price', 'image']].head(15))
 
 if option == 'Overall Analysis':
     load_overall_analysis()
