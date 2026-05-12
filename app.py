@@ -193,9 +193,9 @@ def load_overall_analysis():
     with col2 :
         st.metric('2. 💰Toatl Price Value', f"₹ {df['price'].sum():,.0f}")
     with col3:
-        st.metric('3. 📈 Maximum', f"₹ {max_lehenga:,.0f}")
+        st.metric('3. 📈 Maximum', f"₹ {max_celeb:,.0f}")
     with col4:
-        st.metric('4. 📉 Minimun', f"₹ {min_lehenga:,.0f}")
+        st.metric('4. 📉 Minimun', f"₹ {min_celeb:,.0f}")
 
     st.markdown("---")
     st.title("👑 Lehengas")
@@ -298,22 +298,13 @@ def load_overall_analysis():
         st.metric('1. 🛒 Total Items', dfk['title'].count())
 
     with col2:
-        st.metric(
-            '2. 💰 Total Price Value',
-            f"₹ {dfk['price'].sum():,.0f}"
-        )
+        st.metric('2. 💰 Total Price Value',f"₹ {dfk['price'].sum():,.0f}")
 
     with col3:
-        st.metric(
-            '📈 Maximum',
-            f"₹ {max_kurta:,.0f}"
-        )
+        st.metric('📈 Maximum',f"₹ {max_kurta:,.0f}")
 
     with col4:
-        st.metric(
-            '📉 Minimum',
-            f"₹ {min_kurta:,.0f}"
-        )
+        st.metric('📉 Minimum',f"₹ {min_kurta:,.0f}")
 
     st.markdown("---")
     st.title("💃 Co-ord Set")
