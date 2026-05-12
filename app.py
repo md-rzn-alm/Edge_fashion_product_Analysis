@@ -8,8 +8,8 @@ from pandas.core.methods.describe import select_describe_func
 
 st.set_page_config(layout='wide', page_title='Edge Fashion')
 
-dfa = pd.read_csv("anarkali_Efashion.csv")
-df = pd.read_csv("celeb_Efashion.csv")
+dfa = pd.read_csv("anarkali_Efashion1.csv")
+df = pd.read_csv("celeb_Efashion1.csv")
 dfs = pd.read_csv("saree_Efashion.csv")
 dfl = pd.read_csv("lehenga_Efashion.csv")
 dfj = pd.read_csv("jacket_Efashion.csv")
@@ -41,6 +41,7 @@ df['celebrity'] = df['celebrity'].str.replace("SUMMIYYA IN" , "Summiya")
 
 
 df.loc[107, 'price'] = 153600
+dfa = dfa.iloc[:-1].reset_index(drop=True)
 
 st.sidebar.title('🔍 Select for Manually Analyse')
 
@@ -65,17 +66,11 @@ def load_overall_analysis():
     # Data Preparation
     # =========================
 
-    max_value = final.groupby('category')['price'] \
-        .sum() \
-        .sort_values(ascending=False)
+    max_value = final.groupby('category')['price'].sum().sort_values(ascending=False)
 
-    count_value = final.groupby('category')['title'] \
-        .count() \
-        .sort_values(ascending=False)
+    count_value = final.groupby('category')['title'].count().sort_values(ascending=False)
 
-    count_values = df.groupby('celebrity')['title'] \
-        .count() \
-        .sort_values(ascending=False)
+    count_values = df.groupby('celebrity')['title'].count().sort_values(ascending=False)
 
     # =========================
     # Create Subplots
@@ -158,14 +153,9 @@ def load_overall_analysis():
 
 
 
-
-
-
-
-
     max_celeb = df['price'].max()
     max_anarkali = dfa['price'].max()
-    max_lehenga = df['price'].max()
+    max_lehenga = dfl['price'].max()
     max_kurta = dfk['price'].max()
     max_peplum = dfp['price'].max()
     max_saree = dfs['price'].max()
@@ -175,7 +165,7 @@ def load_overall_analysis():
 
     min_celeb = df['price'].min()
     min_anarkali = dfa['price'].min()
-    min_lehenga = df['price'].min()
+    min_lehenga = dfl['price'].min()
     min_kurta = dfk['price'].min()
     min_peplum = dfp['price'].min()
     min_saree = dfs['price'].min()
