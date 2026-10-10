@@ -39,7 +39,7 @@ The objective of this project is to apply Python programming and data analysis c
 
 Aspiring Data Analyst | Machine Learning Enthusiast
 
-- 💼 [LinkedIn](https://www.linkedin.com/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/md-rizwan-alam-3a0b37263)
 - 🐙 [GitHub](https://github.com/md-rzn-alm)
 
 ---
